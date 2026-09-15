@@ -77,7 +77,12 @@ async function handleSubmit(event) {
     state.recommendation = await getRecommendation(
       Object.fromEntries(new FormData(event.currentTarget)),
     );
-    state.view = "result";
+    if (state.recommendation) {
+      state.view = "result";
+    } else {
+      state.error =
+        "No matching movie was found in the database. Try describing a different preference.";
+    }
   } catch {
     state.error = "Something went wrong. Try again in a moment.";
   } finally {
@@ -104,6 +109,8 @@ async function getRecommendation(answers) {
         description:
           data[0].content.split(": ").slice(1).join(": ") || data[0].content,
       };
+
+    return null;
   }
   return chooseLocalMovie(answers);
 }
