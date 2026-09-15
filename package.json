@@ -5,10 +5,12 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "seed:movies": "node scripts/seed-movies.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.38.2",
+    "dotenv": "^16.4.7",
     "openai": "4.12.3",
     "vite": "latest"
   },

@@ -54,6 +54,25 @@ VITE_SUPABASE_URL=https://your-project-id.supabase.co
 VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
 ```
 
+To import the movies from `movies.txt` and generate their embeddings, add these
+server-only variables to `.env` as well:
+
+```env
+VITE_OPENAI_API_KEY=your-openai-api-key
+VITE_SUPABASE_URL=https://your-project-id.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
+```
+
+Run the importer from the project root:
+
+```bash
+npm run seed:movies
+```
+
+The importer uses the `text-embedding-3-small` model and can be run again safely
+after adding or updating a movie. The service role key is only for this local
+import command; never use it in `VITE_*` variables or commit it to the repository.
+
 The application can run without these variables by using the local recommendation fallback. Do not commit the `.env` file to the repository.
 
 ## Supabase Setup
@@ -71,6 +90,8 @@ create table if not exists public.movies (
 	content text not null,
 	embedding extensions.vector(1536)
 );
+
+create unique index if not exists movies_title_unique on public.movies (title);
 ```
 
 Create the vector search function used by the application:
