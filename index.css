@@ -1,0 +1,179 @@
+:root {
+  color: #f7f5f2;
+  background: #071338;
+  font-family: "Roboto Slab", sans-serif;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+}
+.app-shell {
+  min-height: 100vh;
+  background: radial-gradient(circle at 90% 0%, #26376c 0, #071338 36rem);
+  overflow: hidden;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 7vw 0;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.popcorn {
+  width: 78px;
+  height: 78px;
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+  filter: drop-shadow(0 7px 5px #020a26);
+}
+.brand-name {
+  color: #fff;
+  font-family: "Carter One", serif;
+  font-size: clamp(2.2rem, 6vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 0.9;
+}
+.content {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2vh 7vw 2vh;
+}
+.preference-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 620px;
+  width: 100%;
+  margin-inline: auto;
+}
+label {
+  color: #f1f0ed;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+textarea {
+  background: #293b70;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #fff;
+  font: inherit;
+  min-height: 150px;
+  padding: 14px 16px;
+  resize: none;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+textarea::placeholder {
+  color: #aeb8d6;
+  opacity: 1;
+}
+textarea:focus {
+  background: #31477e;
+  border-color: #53dd8b;
+  outline: none;
+}
+.primary-button {
+  align-items: center;
+  background: #4fe08b;
+  border: 0;
+  border-radius: 8px;
+  color: #061434;
+  cursor: pointer;
+  display: flex;
+  font:
+    800 1.15rem "Roboto Slab",
+    sans-serif;
+  justify-content: center;
+  margin-top: 10px;
+  min-height: 58px;
+  padding: 0 24px;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+.primary-button:hover {
+  background: #74eea8;
+  transform: translateY(-2px);
+}
+.primary-button:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+.spinner {
+  border: 3px solid #164b38;
+  border-right-color: transparent;
+  border-radius: 50%;
+  height: 18px;
+  margin-right: 10px;
+  width: 18px;
+  animation: spin 0.8s linear infinite;
+}
+.error {
+  color: #ffb7ad;
+  margin: 8px 0 0;
+}
+.result-panel {
+  max-width: 680px;
+  padding-top: 5vh;
+}
+.result-panel h1 span {
+  color: #9eabc9;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 0.42em;
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.rule {
+  background: #354675;
+  height: 1px;
+  margin: 30px 0;
+  width: 100%;
+}
+.recommendation {
+  color: #e0e4ef;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.6;
+  margin: 0;
+}
+.match-note {
+  color: #8290b5;
+  font-size: 0.85rem;
+  margin-top: 42px;
+}
+.match-note span {
+  color: #53dd8b;
+}
+.result-panel .primary-button {
+  max-width: 340px;
+  margin-top: 32px;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .popcorn {
+    font-size: 3.2rem;
+    height: 64px;
+    width: 64px;
+  }
+  .intro h1 br {
+    display: none;
+  }
+  .result-panel {
+    padding-top: 4vh;
+  }
+}
